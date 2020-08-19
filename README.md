@@ -66,7 +66,7 @@ Import `initialize.sql` into your database. You can also import `seed.sql` for d
 
 ## Usage
 
-### Inserting a new completion
+### Insert a new completion
 
 Use `InsertCompletion(app_id, completion_text, max_prefixes, max_bucket_size)`.
 
