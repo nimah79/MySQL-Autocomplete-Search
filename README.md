@@ -81,6 +81,6 @@ CALL InsertCompletion(1, 'nima', 15, 15);
 Use `GetCompletions(app_id, prefix_text)`. Example:
 
 ```sql
-CALL GetCompletions(1, 'a');
+CALL GetCompletions(1, 'n');
 ```
 **Time complexity:** O(log(table_prefixes_count × table_completions_count))
