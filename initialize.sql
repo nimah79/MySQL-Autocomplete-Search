@@ -33,7 +33,7 @@ CREATE PROCEDURE `GetCompletions` (IN `app_id` INT, IN `prefix_text` VARCHAR(255
     END IF;
 END$$
 
-CREATE PROCEDURE `InsertCompletion` (IN `app_id` INT, IN `completion_text` VARCHAR(255), IN `max_prefixes` INT, IN `bucket_size_limit` INT)  BEGIN
+CREATE PROCEDURE `InsertCompletion` (IN `app_id` INT, IN `completion_text` VARCHAR(255), IN `max_prefixes` INT, IN `max_bucket_size` INT)  BEGIN
     DECLARE i INT DEFAULT 1;
     DECLARE prefix VARCHAR(255) DEFAULT '';
     DECLARE completion_length VARCHAR(255);
@@ -56,7 +56,7 @@ CREATE PROCEDURE `InsertCompletion` (IN `app_id` INT, IN `completion_text` VARCH
         ELSE
             SET @bucket_size = (SELECT COUNT(*) FROM `completions`
                 WHERE `prefix_id` = @prefix_id);
-            IF @bucket_size >= bucket_size_limit THEN
+            IF @bucket_size >= max_bucket_size THEN
                 UPDATE `completions` SET `completion` = completion_text, `rank` = `rank` + 1
                     WHERE `id` = (SELECT id FROM `completions`
                         WHERE `prefix_id` = @prefix_id ORDER BY `rank` ASC LIMIT 1);

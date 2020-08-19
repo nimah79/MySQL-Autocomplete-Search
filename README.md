@@ -68,14 +68,14 @@ Import `initialize.sql` into your database. You can also import `seed.sql` for d
 
 ### Inserting a new completion
 
-Use `InsertCompletion(app_id, completion_text, max_prefixes, bucket_size_limit)`.
+Use `InsertCompletion(app_id, completion_text, max_prefixes, max_bucket_size)`.
 
 #### Arguments:
 
 + `app_id`: application ID (tenant ID)
 + `completion_text`: completion text
 + `max_prefixes`: max prefixes of completion text to store (for example, first 2 prefixes of `nima` are `n` and `ni`.)
-+ `bucket_size_limit`: maximum number of completions to store in each prefix
++ `max_bucket_size`: maximum number of completions to store in each prefix
 
 #### Example:
 
