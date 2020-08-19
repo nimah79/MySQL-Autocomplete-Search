@@ -68,7 +68,16 @@ Import `initialize.sql` into your database. You can also import `seed.sql` for d
 
 ### Inserting a new completion
 
-Use `InsertCompletion(app_id, completion_text, max_prefixes, bucket_size_limit)`. Example:
+Use `InsertCompletion(app_id, completion_text, max_prefixes, bucket_size_limit)`.
+
+#### Arguments:
+
++ `app_id`: application ID (tenant ID)
++ `completion_text`: completion text
++ `max_prefixes`: max prefixes of completion text to store (for example, first 2 prefixes of `nima` are `n` and `ni`.)
++ `bucket_size_limit`: maximum number of completions to store in each prefix
+
+#### Example:
 
 ```sql
 CALL InsertCompletion(1, 'nima', 15, 15);
@@ -78,7 +87,14 @@ CALL InsertCompletion(1, 'nima', 15, 15);
 
 ### Get completions of a prefix
 
-Use `GetCompletions(app_id, prefix_text)`. Example:
+Use `GetCompletions(app_id, prefix_text)`.
+
+#### Arguments:
+
++ `app_id`: application ID (tenant ID)
++ `prefix_text`: prefix text
+
+#### Example:
 
 ```sql
 CALL GetCompletions(1, 'n');
