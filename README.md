@@ -1,5 +1,7 @@
 # MySQL Autocomplete Search
 
+**⚠️ Note**: As MySQL implemented this feature nicely, this repository is archived.
+
 This is a simple and efficient implementation of autocomplete. The main idea is from [prefixy/prefixy]([https://github.com/prefixy/prefixy](https://github.com/prefixy/prefixy)) It shows suggestions sorted by scores and it also supports multitenancy.
 
 An example of autocomplete is Google search field:
